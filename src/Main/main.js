@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './main.css';
 import View from '../Views/view';
 
@@ -6,23 +6,22 @@ const Main = () => {
   // state to get input and date
   const [inputValue, setInputValue] = useState('');
   const [inputDate, setInputDate] = useState('');
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState([{}]);
 
-  const tasks_ = [];
+  let tasks_ = [];
 
   // function 
   const handleClick = () => {
-    const task = {
-      task:'',
-      date:''
-    };
-
+    const task = new Object();
     task.task = inputValue;
     task.date = inputDate;
-    tasks_.push(task);
-    setTasks(tasks_);
-    console.log(tasks);
+
+     console.log(tasks);
   }
+
+  useEffect(() => {
+    console.log(tasks);
+  }, [tasks]);
 
 
 
