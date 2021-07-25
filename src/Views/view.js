@@ -1,13 +1,13 @@
 import './view.css';
 
-const View = () => {
+const View = ({ taskName, taskDate, handleDelete }) => {
   return ( 
     
     <div className="viewCard">
       <div className="viewCardContent">
         <div className="viewCardProp">
-        <h3>Name of Task</h3>
-        <p>YYYY-MM-DD</p>
+        <h3>{taskName}</h3>
+        <p>{taskDate}</p>
         </div>
         <button>X</button>
       </div>

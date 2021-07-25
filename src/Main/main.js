@@ -8,22 +8,16 @@ const Main = () => {
   const [inputDate, setInputDate] = useState('');
   const [tasks, setTasks] = useState([]);
 
-  const tasks_ = [];
+  // function to delete the task from the array
+  const handleDelete = (key) => {
 
-  // function 
-  const handleClick = () => {
-    const task = {
-      task:'',
-      date:''
-    };
+    for (let i = 0; i < tasks.length; i++){
+        if (tasks[i] == tasks[key]){
+          tasks.splice(i, 1);
+        }
+    }
 
-    task.task = inputValue;
-    task.date = inputDate;
-    tasks_.push(task);
-    setTasks(tasks_);
-    console.log(tasks);
-  }
-
+  } 
 
 
   return ( 
@@ -42,10 +36,14 @@ const Main = () => {
           value={inputDate}
           onChange={e=> {setInputDate(e.target.value)}}
         />
-        <button onClick={handleClick}>Add Task</button>
+        <button onClick={() => setTasks([...tasks, {inputValue, inputDate}])}>Add Task</button>
       </div>
 
-      <View/>
+      {
+        tasks.map((task, key) => (
+          <View key={key} taskName={task.inputValue} taskDate={task.inputDate}/>
+        ))
+      }
     </div>
    );
 }
