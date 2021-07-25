@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './main.css';
 import View from '../Views/view';
 
@@ -6,8 +6,9 @@ const Main = () => {
   // state to get input and date
   const [inputValue, setInputValue] = useState('');
   const [inputDate, setInputDate] = useState('');
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState([{}]);
 
+<<<<<<< HEAD
   // function to delete the task from the array
   const handleDelete = (key) => {
 
@@ -18,6 +19,23 @@ const Main = () => {
     }
 
   } 
+=======
+  let tasks_ = [];
+
+  // function 
+  const handleClick = () => {
+    const task = new Object();
+    task.task = inputValue;
+    task.date = inputDate;
+
+     console.log(tasks);
+  }
+
+  useEffect(() => {
+    console.log(tasks);
+  }, [tasks]);
+
+>>>>>>> 8ddb346c03dfd7fff1f0faa8abf23377105b256b
 
 
   return ( 
