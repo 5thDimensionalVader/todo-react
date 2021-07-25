@@ -1,6 +1,6 @@
 import './view.css';
 
-const View = ({ taskName, taskDate, handleDelete }) => {
+const View = ({ taskName, taskDate}) => {
   return ( 
     
     <div className="viewCard">
