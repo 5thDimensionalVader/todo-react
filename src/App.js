@@ -1,6 +1,5 @@
 import './App.css';
 import Main from './Main/main';
-import View from './Views/view';
 
 const App = () =>  {
   return (
