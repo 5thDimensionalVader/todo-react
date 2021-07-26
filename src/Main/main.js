@@ -9,7 +9,15 @@ const Main = () => {
   const [tasks, setTasks] = useState([]);
 
   // function to delete the task from the array
-
+  const handleDelete = (key) => {
+    console.log(tasks);
+    
+    const new_array = tasks.filter((task,index) => {
+      return index !== key;
+    });
+    setTasks(new_array);
+    console.log(new_array);
+  } 
 
   // let tasks_ = [];
 
@@ -49,7 +57,7 @@ const Main = () => {
 
       {
         tasks.map((task, key) => (
-          <View key={key} taskName={task.inputValue} taskDate={task.inputDate}/>
+          <View key={key} taskName={task.inputValue} taskDate={task.inputDate} action={handleDelete} index={key}/>
         ))
       }
     </div>

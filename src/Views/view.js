@@ -1,6 +1,6 @@
 import './view.css';
 
-const View = ({ taskName, taskDate}) => {
+const View = ({ taskName, taskDate, action, index}) => {
   return ( 
     
     <div className="viewCard">
@@ -9,7 +9,7 @@ const View = ({ taskName, taskDate}) => {
         <h3>{taskName}</h3>
         <p>{taskDate}</p>
         </div>
-        <button>X</button>
+        <button onClick={() => action(index)}>X</button>
       </div>
     </div>
    );
